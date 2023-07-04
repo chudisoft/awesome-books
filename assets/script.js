@@ -1,10 +1,23 @@
 let counter = 0;
 let bookList = [];
+const form = document.querySelector('form');
+const bookListElement = document.querySelector('#book-list');
+const bookStorageName = 'booklist';
+
+function saveData() {
+  const newBookList = [];
+  bookList.forEach((book) => {
+    newBookList.push({ title: book.title, author: book.author });
+  });
+  localStorage.setItem(bookStorageName, JSON.stringify(newBookList));
+}
+
 class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
+
   addBook() {
     counter += 1;
     const divBook = document.createElement('div');
@@ -15,13 +28,14 @@ class Book {
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
     removeBtn.className = 'btn btn-remove';
-   removeBtn.book = this; //  store the book object as a property of the remove button
+    removeBtn.book = this; //  store the book object as a property of the remove button
     removeBtn.addEventListener('click', () => {
       this.bookList = bookList.filter(
-        (_book) => _book !== this);
+        (_book) => _book !== this,
+      );
       console.log(bookList);
       saveData();
-      
+
       bookListElement.removeChild(divBook);
       // Recolor
       counter = 0;
@@ -34,41 +48,26 @@ class Book {
     divBook.appendChild(removeBtn);
     bookListElement.appendChild(divBook);
   }
-
 }
 
-const form = document.querySelector('form');
-const bookListElement = document.querySelector('#book-list');
-const bookStorageName = 'booklist';
 // add book function
-  //  refuctor booklist
- function renderBookList() {
-    const storedvalue = localStorage.getItem(bookStorageName);
-    bookListElement.textContent = '';
-    bookList = [];
-    if (storedvalue !== null) {
-      const _bookList = JSON.parse(storedvalue);
-      _bookList.forEach((book) => {
-        bookList.push(new Book(book.title, book.author));
-      })
-    }
-    console.log(bookList);
-    bookList.forEach((book) => {
-      console.log(book);
-      book.addBook();
+//  refuctor booklist
+function renderBookList() {
+  const storedvalue = localStorage.getItem(bookStorageName);
+  bookListElement.textContent = '';
+  bookList = [];
+  if (storedvalue !== null) {
+    const newBookList = JSON.parse(storedvalue);
+    newBookList.forEach((book) => {
+      bookList.push(new Book(book.title, book.author));
     });
   }
-
+  bookList.forEach((book) => {
+    book.addBook();
+  });
+}
 
 renderBookList();
-function saveData(){
-  const _bookList = [];
-  console.log(bookList);
-  bookList.forEach((book) => {
-    _bookList.push({title:book.title ,author: book.author});
-  })
-  localStorage.setItem(bookStorageName, JSON.stringify(_bookList));
-}
 //  add an event listener to the form submit button
 form.addEventListener('submit', (event) => {
   event.preventDefault();
