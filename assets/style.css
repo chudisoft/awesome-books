@@ -14,7 +14,7 @@ main {
 
 #book-list {
   margin: 20px 0;
-  border: #000 solid 1px;
+  border: #000 solid 2px;
 }
 
 .book {
@@ -41,5 +41,33 @@ main {
 .btn-remove {
   float: right;
   background-color: #fff;
-  box-shadow: 0.1em 0.1em #ddd;
+  box-shadow: 0.2em 0.2em #000;
+}
+
+form {
+  text-align: center;
+}
+
+.main-title {
+  text-align: center;
+  margin: 15px;
+}
+
+#title,
+#author {
+  margin: 5px;
+  border: 2px solid black;
+  padding: 3px;
+}
+
+#add-btn {
+  margin-left: 7rem;
+  box-shadow: 0.2em 0.2em #000;
+}
+
+hr {
+  background: black;
+  text-align: center;
+  height: 4px;
+  margin: 20px 190px;
 }
