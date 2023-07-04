@@ -30,10 +30,9 @@ class Book {
     removeBtn.className = 'btn btn-remove';
     removeBtn.book = this; //  store the book object as a property of the remove button
     removeBtn.addEventListener('click', () => {
-      this.bookList = bookList.filter(
+      bookList = bookList.filter(
         (_book) => _book !== this,
       );
-      console.log(bookList);
       saveData();
 
       bookListElement.removeChild(divBook);
