@@ -18,8 +18,11 @@ main {
 }
 
 .book {
+  display: flex;
+  flex-wrap: wrap;
   background-color: #ddd;
   padding: 0.5em;
+  justify-content: space-between;
 }
 
 .bg-white {
@@ -39,13 +42,13 @@ main {
 }
 
 .btn-remove {
-  float: right;
   background-color: #fff;
   box-shadow: 0.2em 0.2em #000;
 }
 
 form {
   text-align: center;
+  padding: 0 20%;
 }
 
 .main-title {
@@ -58,10 +61,11 @@ form {
   margin: 5px;
   border: 2px solid black;
   padding: 3px;
+  width:100%;
 }
 
 #add-btn {
-  margin-left: 7rem;
+  float: right;
   box-shadow: 0.2em 0.2em #000;
 }
 
