@@ -8,6 +8,38 @@ main {
   margin: 20px 30%;
 }
 
+.page-title {
+  text-align: center;
+}
+
 #book-list {
-  margin: 20px;
+  margin: 20px 0;
+  border: #000 solid 1px;
+}
+
+.book {
+  background-color: #ddd;
+  padding: 0.5em;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.title {
+  font-size: large;
+  font-weight: 600;
+}
+
+.btn {
+  padding: 0.1em 0.5em;
+  border: solid 1px #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-remove {
+  float: right;
+  background-color: #fff;
+  box-shadow: 0.1em 0.1em #ddd;
 }
