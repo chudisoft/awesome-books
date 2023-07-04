@@ -14,7 +14,7 @@ main {
 
 #book-list {
   margin: 20px 0;
-  border: #000 solid 2px;
+  border: #000 solid 1px;
 }
 
 .book {
@@ -69,5 +69,5 @@ hr {
   background: black;
   text-align: center;
   height: 4px;
-  margin: 20px 190px;
+  margin: 20px 180px;
 }
