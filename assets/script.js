@@ -1,8 +1,28 @@
 let counter = 0;
 let bookList = [];
 const form = document.querySelector("form");
+const contactUs=document.querySelector('.contactUs');
 const bookListElement = document.querySelector("#book-list");
+const contBtn = document.querySelector("#contBtn");
 const bookStorageName = "booklist";
+
+function hideAll(){
+if(!contactUs.classList.contains('hidden')) 
+  contactUs.classList.add('hidden')  ;
+
+if(!bookListElement.classList.contains('hidden')) 
+  bookListElement.classList.add('hidden')  ;
+
+if(!form.classList.contains('hidden')) 
+  form.classList.add('hidden')  ;
+}
+contBtn.addEventListener("click", () => {
+  hideAll();
+});
+function displayContent(){
+    
+}
+
 const currentDate = document.querySelector(".date");
 setInterval(() => {
   currentDate.innerHTML = new Date();

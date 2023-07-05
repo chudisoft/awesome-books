@@ -101,3 +101,7 @@ hr {
   height: 4px;
   margin: 20px 180px;
 }
+
+.hidden{
+  display: none;
+}
