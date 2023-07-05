@@ -8,18 +8,31 @@
   </head>
   <body>
     <main>
-      <h1>Awesome-Books</h1>
+      <h1 class="page-title">Awesome-Books</h1>
       <div id="book-list">
         <div class="book">
-            <h5 class="title"></h5>
-            <h5 class="author"></h5>
-            <hr />
+          <h5 class="title"></h5>
+          <button type="button">Remove</button>
         </div>
       </div>
-      <form>
-        <input type="text" id="title" name="title" required placeholder="Book Title"/><br />
-        <input type="text" id="author" name="author" required placeholder="Book Author"/><br />
-        <button type="submit" id="add-btn">Add Book</button>
+      <form  >
+        <hr>
+        <h3 class="main-title">Add a new book</h3>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          placeholder="Book Title"
+        /><br />
+        <input
+          type="text"
+          id="author"
+          name="author"
+          required
+          placeholder="Book Author"
+        /><br />
+        <button class="btn" type="submit" id="add-btn">Add Book</button>
       </form>
     </main>
 

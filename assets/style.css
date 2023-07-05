@@ -8,6 +8,70 @@ main {
   margin: 20px 30%;
 }
 
+.page-title {
+  text-align: center;
+}
+
 #book-list {
-  margin: 20px;
+  margin: 20px 0;
+  border: #000 solid 1px;
+}
+
+.book {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ddd;
+  padding: 0.5em;
+  justify-content: space-between;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.title {
+  font-size: large;
+  font-weight: 600;
+}
+
+.btn {
+  padding: 0.1em 0.5em;
+  border: solid 1px #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-remove {
+  background-color: #fff;
+  box-shadow: 0.2em 0.2em #000;
+}
+
+form {
+  text-align: center;
+  padding: 0 20%;
+}
+
+.main-title {
+  text-align: center;
+  margin: 15px;
+}
+
+#title,
+#author {
+  margin: 5px;
+  border: 2px solid black;
+  padding: 3px;
+  width: 100%;
+}
+
+#add-btn {
+  float: right;
+  box-shadow: 0.2em 0.2em #000;
+}
+
+hr {
+  background: black;
+  text-align: center;
+  height: 4px;
+  margin: 20px 180px;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-microverse",
+  "name": "Awesome Books",
   "version": "1.0.0",
   "description": "<a name=\"readme-top\"></a>\r <div align=\"center\">\r   <img src=\"assets/images/logo.png\" alt=\"logo\" width=\"140\"  height=\"auto\" />\r   <br/>",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://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@github.com/chudisoft/Portfolio-Microverse.git"
+    "url": "https://github.com/chudisoft/awesome-books"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chudisoft/Portfolio-Microverse/issues"
+    "url": "https://github.com/chudisoft/awesome-books/issues"
   },
-  "homepage": "https://github.com/chudisoft/Portfolio-Microverse#readme",
+  "homepage": "https://github.com/chudisoft/awesome-books#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",

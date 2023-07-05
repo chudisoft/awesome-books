@@ -159,8 +159,13 @@ your server.
 👤 **Fatima Najafi**
 
 - GitHub: [@githubhandle](https://github.com/fatima-najafi)
-- Twitter: [@twitterhandle](https://twitter.com)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fatima-najafi-75424a23a/)
+
+👤 **Faisal**
+
+- GitHub: [@githubhandle](https://github.com/faisalakb)
+- Twitter: [@twitterhandle](https://twitter.com/Faisalakb786)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/faisal-mumtaz-514a221a6/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
