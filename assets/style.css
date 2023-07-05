@@ -3,9 +3,35 @@
   padding: 0;
   box-sizing: border-box;
 }
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px 25px;
+  border: 2px solid black;
+  margin: 5px 8px;
+  border-radius: 5px;
+}
+a {
+  text-decoration: none;
+}
+.nav a {
+  color: black;
+  padding: 0 10px;
+}
+.nav-border {
+  border-right: 2px solid black;
+  padding-right: 10px;
+}
+.nav a:hover {
+  color: blue;
+}
 
 main {
-  margin: 20px 30%;
+  margin: 20px 8px;
+}
+.date {
+  text-align: right;
 }
 
 .page-title {

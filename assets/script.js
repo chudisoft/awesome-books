@@ -1,8 +1,12 @@
 let counter = 0;
 let bookList = [];
-const form = document.querySelector('form');
-const bookListElement = document.querySelector('#book-list');
-const bookStorageName = 'booklist';
+const form = document.querySelector("form");
+const bookListElement = document.querySelector("#book-list");
+const bookStorageName = "booklist";
+const currentDate = document.querySelector(".date");
+setInterval(() => {
+  currentDate.innerHTML = new Date();
+}, 1000);
 
 class Book {
   constructor(title, author) {
@@ -21,16 +25,20 @@ class Book {
 
   addBook() {
     counter += 1;
-    const divBook = document.createElement('div');
-    if (counter % 2 === 1) { divBook.className = 'book'; } else { divBook.className = 'book bg-white'; }
-    const titleHeader = document.createElement('label');
-    titleHeader.className = 'title';
+    const divBook = document.createElement("div");
+    if (counter % 2 === 1) {
+      divBook.className = "book";
+    } else {
+      divBook.className = "book bg-white";
+    }
+    const titleHeader = document.createElement("label");
+    titleHeader.className = "title";
     titleHeader.textContent = `"${this.title}" by ${this.author}`;
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remove';
-    removeBtn.className = 'btn btn-remove';
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.className = "btn btn-remove";
     removeBtn.book = this; //  store the book object as a property of the remove button
-    removeBtn.addEventListener('click', () => {
+    removeBtn.addEventListener("click", () => {
       this.removeBook();
     });
     divBook.appendChild(titleHeader);
@@ -40,22 +48,24 @@ class Book {
 
   removeBook() {
     const index = bookList.indexOf(this);
-    bookList = bookList.filter(
-      (_book) => _book !== this,
-    );
+    bookList = bookList.filter((_book) => _book !== this);
     this.saveData();
     bookListElement.removeChild(bookListElement.childNodes[index]);
     // Recolor
     counter = 0;
     bookListElement.childNodes.forEach((element) => {
       counter += 1;
-      if (counter % 2 === 1) { element.className = 'book'; } else { element.className = 'book bg-white'; }
+      if (counter % 2 === 1) {
+        element.className = "book";
+      } else {
+        element.className = "book bg-white";
+      }
     });
   }
 
   renderBookList() {
     const storedvalue = localStorage.getItem(bookStorageName);
-    bookListElement.textContent = '';
+    bookListElement.textContent = "";
     bookList = [];
     if (storedvalue !== null) {
       this.newBookList = JSON.parse(storedvalue);
@@ -69,19 +79,19 @@ class Book {
   }
 }
 
-(new Book('', '')).renderBookList();
+new Book("", "").renderBookList();
 
 //  add an event listener to the form submit button
-form.addEventListener('submit', (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const title = document.querySelector('#title').value.trim();
-  const author = document.querySelector('#author').value.trim();
-  if (title !== '' && author !== '') {
+  const title = document.querySelector("#title").value.trim();
+  const author = document.querySelector("#author").value.trim();
+  if (title !== "" && author !== "") {
     const book = new Book(title, author);
     book.addBook();
     bookList.push(book);
     book.saveData();
-    document.querySelector('#title').value = '';
-    document.querySelector('#author').value = '';
+    document.querySelector("#title").value = "";
+    document.querySelector("#author").value = "";
   }
 });
