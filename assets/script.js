@@ -44,8 +44,6 @@ class Book {
       (_book) => _book !== this,
     );
     this.saveData();
-
-    // bookListElement.removeChild(divBook);
     bookListElement.removeChild(bookListElement.childNodes[index]);
     // Recolor
     counter = 0;
