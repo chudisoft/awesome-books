@@ -4,18 +4,19 @@ const form = document.querySelector('form');
 const bookListElement = document.querySelector('#book-list');
 const bookStorageName = 'booklist';
 
-function saveData() {
-  const newBookList = [];
-  bookList.forEach((book) => {
-    newBookList.push({ title: book.title, author: book.author });
-  });
-  localStorage.setItem(bookStorageName, JSON.stringify(newBookList));
-}
-
 class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
+    this.newBookList = [];
+  }
+
+  saveData() {
+    this.newBookList = [];
+    bookList.forEach((book) => {
+      this.newBookList.push({ title: book.title, author: book.author });
+    });
+    localStorage.setItem(bookStorageName, JSON.stringify(this.newBookList));
   }
 
   addBook() {
@@ -30,43 +31,48 @@ class Book {
     removeBtn.className = 'btn btn-remove';
     removeBtn.book = this; //  store the book object as a property of the remove button
     removeBtn.addEventListener('click', () => {
-      bookList = bookList.filter(
-        (_book) => _book !== this,
-      );
-      saveData();
-
-      bookListElement.removeChild(divBook);
-      // Recolor
-      counter = 0;
-      bookListElement.childNodes.forEach((element) => {
-        counter += 1;
-        if (counter % 2 === 1) { element.className = 'book'; } else { element.className = 'book bg-white'; }
-      });
+      this.removeBook();
     });
     divBook.appendChild(titleHeader);
     divBook.appendChild(removeBtn);
     bookListElement.appendChild(divBook);
   }
-}
 
-// add book function
-//  refuctor booklist
-function renderBookList() {
-  const storedvalue = localStorage.getItem(bookStorageName);
-  bookListElement.textContent = '';
-  bookList = [];
-  if (storedvalue !== null) {
-    const newBookList = JSON.parse(storedvalue);
-    newBookList.forEach((book) => {
-      bookList.push(new Book(book.title, book.author));
+  removeBook() {
+    const index = bookList.indexOf(this);
+    bookList = bookList.filter(
+      (_book) => _book !== this,
+    );
+    this.saveData();
+
+    // bookListElement.removeChild(divBook);
+    bookListElement.removeChild(bookListElement.childNodes[index]);
+    // Recolor
+    counter = 0;
+    bookListElement.childNodes.forEach((element) => {
+      counter += 1;
+      if (counter % 2 === 1) { element.className = 'book'; } else { element.className = 'book bg-white'; }
     });
   }
-  bookList.forEach((book) => {
-    book.addBook();
-  });
+
+  renderBookList() {
+    const storedvalue = localStorage.getItem(bookStorageName);
+    bookListElement.textContent = '';
+    bookList = [];
+    if (storedvalue !== null) {
+      this.newBookList = JSON.parse(storedvalue);
+      this.newBookList.forEach((book) => {
+        bookList.push(new Book(book.title, book.author));
+      });
+    }
+    bookList.forEach((book) => {
+      book.addBook();
+    });
+  }
 }
 
-renderBookList();
+(new Book('', '')).renderBookList();
+
 //  add an event listener to the form submit button
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -76,7 +82,7 @@ form.addEventListener('submit', (event) => {
     const book = new Book(title, author);
     book.addBook();
     bookList.push(book);
-    saveData();
+    book.saveData();
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
   }
