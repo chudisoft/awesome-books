@@ -1,8 +1,45 @@
 let counter = 0;
 let bookList = [];
 const form = document.querySelector('form');
+const contactUs = document.querySelector('.contactUs');
+const booksSection = document.querySelector('#book-section');
 const bookListElement = document.querySelector('#book-list');
+const contBtn = document.querySelector('#contBtn');
+const listBtn = document.querySelector('#listBtn');
+const AddNewBtn = document.querySelector('#AddNewBtn');
 const bookStorageName = 'booklist';
+
+function hideAll() {
+  if (!contactUs.classList.contains('hidden')) { contactUs.classList.add('hidden'); }
+
+  if (!booksSection.classList.contains('hidden')) { booksSection.classList.add('hidden'); }
+
+  if (!form.classList.contains('hidden')) { form.classList.add('hidden'); }
+}
+
+hideAll();
+booksSection.classList.toggle('hidden');
+
+contBtn.addEventListener('click', () => {
+  hideAll();
+  contactUs.classList.toggle('hidden');
+});
+
+listBtn.addEventListener('click', () => {
+  hideAll();
+  booksSection.classList.toggle('hidden');
+});
+
+AddNewBtn.addEventListener('click', () => {
+  hideAll();
+  form.classList.toggle('hidden');
+});
+
+const currentDate = document.querySelector('.date');
+setInterval(() => {
+  const d = new Date();
+  currentDate.innerHTML = `${d.toDateString()} ${d.toLocaleTimeString()}`;
+}, 1000);
 
 class Book {
   constructor(title, author) {
@@ -22,7 +59,11 @@ class Book {
   addBook() {
     counter += 1;
     const divBook = document.createElement('div');
-    if (counter % 2 === 1) { divBook.className = 'book'; } else { divBook.className = 'book bg-white'; }
+    if (counter % 2 === 1) {
+      divBook.className = 'book';
+    } else {
+      divBook.className = 'book bg-white';
+    }
     const titleHeader = document.createElement('label');
     titleHeader.className = 'title';
     titleHeader.textContent = `"${this.title}" by ${this.author}`;
@@ -40,16 +81,18 @@ class Book {
 
   removeBook() {
     const index = bookList.indexOf(this);
-    bookList = bookList.filter(
-      (_book) => _book !== this,
-    );
+    bookList = bookList.filter((_book) => _book !== this);
     this.saveData();
     bookListElement.removeChild(bookListElement.childNodes[index]);
     // Recolor
     counter = 0;
     bookListElement.childNodes.forEach((element) => {
       counter += 1;
-      if (counter % 2 === 1) { element.className = 'book'; } else { element.className = 'book bg-white'; }
+      if (counter % 2 === 1) {
+        element.className = 'book';
+      } else {
+        element.className = 'book bg-white';
+      }
     });
   }
 
@@ -69,7 +112,7 @@ class Book {
   }
 }
 
-(new Book('', '')).renderBookList();
+new Book('', '').renderBookList();
 
 //  add an event listener to the form submit button
 form.addEventListener('submit', (event) => {

@@ -4,12 +4,68 @@
   box-sizing: border-box;
 }
 
-main {
-  margin: 20px 30%;
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px 25px;
+  border: 2px solid black;
+  margin: 5px 8px;
+  border-radius: 5px;
 }
 
-.page-title {
+a {
+  text-decoration: none;
+}
+
+.nav a {
+  color: black;
+  padding: 0 10px;
+}
+
+.nav-border {
+  border-right: 2px solid black;
+  padding-right: 10px;
+}
+
+.nav a:hover {
+  color: blue;
+}
+
+main {
+  margin: 20px 8px;
+}
+
+.date {
+  text-align: right;
+}
+
+form h2,
+.contactUs h2 {
+  margin: 1em 2em;
   text-align: center;
+}
+
+#book-section h2 {
+  text-align: center;
+  margin: 1em;
+}
+
+#contact-section,
+#form-section {
+  display: flex;
+  justify-content: center;
+}
+
+.contactUs {
+  text-align: left;
+  max-width: 25em;
+}
+
+.contactUs ul {
+  list-style: inside;
+  text-align: left;
+  margin: 1em 2em;
 }
 
 #book-list {
@@ -48,17 +104,12 @@ main {
 
 form {
   text-align: center;
-  padding: 0 20%;
-}
-
-.main-title {
-  text-align: center;
-  margin: 15px;
+  max-width: 25em;
 }
 
 #title,
 #author {
-  margin: 5px;
+  margin: 5px 0;
   border: 2px solid black;
   padding: 3px;
   width: 100%;
@@ -74,4 +125,18 @@ hr {
   text-align: center;
   height: 4px;
   margin: 20px 180px;
+}
+
+footer {
+  border: solid 2px black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 98.8%;
+  margin-bottom: 5px;
+}
+
+.hidden {
+  display: none;
 }
